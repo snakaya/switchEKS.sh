@@ -13,15 +13,15 @@ switchEKS.sh <MFA Device ARN(SerialNumber)> <EKS Cluster Name>
 switchEKS.sh arn:aws:iam::111111:mfa/tanaka eks-test
 
 ```bash
-$ . ./switchEKS.sh arn:aws:iam::108242370871:mfa/snakaya prod-eks-poc-vp
+$ . ./switchEKS.sh arn:aws:iam::111111171:mfa/snakaya prod-eks
 Your AWS Profiles:
   [1] default
-  [2] vptest
-  [3] vpprod
-  [4] vpstg
+  [2] eks-test
+  [3] eks-prod
+  [4] eks-stg
 Select AWS Profile for authentication [1-4]: 3
 Input MFA Code[6digit]: 539878
-EKS Changing finished to prod-eks-poc-vp on ap-northeast-1.
+EKS Changing finished to prod-eks on ap-northeast-1.
 $  env | grep AWS
 AWS_SESSION_TOKEN=FwoGZXIvYXdzEAgaD...aJyOrhHTtxUu2bxikbvgLRfHAF+cUMXWLaNAR9sK
 AWS_SECRET_ACCESS_KEY=9r5dr7Z...3G2MH5a33lUe
