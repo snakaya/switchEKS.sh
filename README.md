@@ -25,6 +25,6 @@ EKS Changing finished to prod-eks on ap-northeast-1.
 $  env | grep AWS
 AWS_SESSION_TOKEN=FwoGZXIvYXdzEAgaD...aJyOrhHTtxUu2bxikbvgLRfHAF+cUMXWLaNAR9sK
 AWS_SECRET_ACCESS_KEY=9r5dr7Z...3G2MH5a33lUe
-AWS_DEFAULT_PROFILE=vpprod
+AWS_DEFAULT_PROFILE=eks-prod
 AWS_ACCESS_KEY_ID=ASI...S4J
 ```
