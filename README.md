@@ -10,7 +10,7 @@ source switchEKS.sh <MFA Device ARN(SerialNumber)> <EKS Cluster Name>
 
 ## Example
 
-switchEKS.sh arn:aws:iam::111111:mfa/tanaka eks-test
+source switchEKS.sh arn:aws:iam::111111:mfa/tanaka eks-test
 
 ```bash
 $ . ./switchEKS.sh arn:aws:iam::111111171:mfa/snakaya prod-eks
