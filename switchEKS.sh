@@ -18,7 +18,7 @@ function set_profile() {
 		fi
 	done
 	AWS_DEFAULT_PROFILE="${aws_profile_list[$((select_aws_profile_number-1))]}"
-	export $AWS_DEFAULT_PROFILE
+	export AWS_DEFAULT_PROFILE
 	if [[ ${AWS_DEFAULT_PROFILE} != "default" ]];then
 		ini_section="profile ${AWS_DEFAULT_PROFILE}"
 		eval `sed -e 's/[[:space:]]*\=[[:space:]]*/=/g' -e 's/;.*$//' -e 's/[[:space:]]*$//' -e 's/^[[:space:]]*//' -e "s/^\(.*\)=\([^\"']*\)$/\1=\"\2\"/" <"${HOME}/.aws/config" | sed -n -e "/^\[${ini_section}\]/,/^\s*\[/{/^[^;].*\=.*/p;}"`
@@ -56,7 +56,7 @@ function set_token() {
 	unset AWS_SESSION_TOKEN
 
 	sts_json=`aws sts get-session-token --serial-number $mfa_arn --token-code $mfa_code | awk ' $1 == "\"AccessKeyId\":" { gsub(/\"/,""); gsub(/,/,""); print "export AWS_ACCESS_KEY_ID="$2";" } $1 == "\"SecretAccessKey\":" { gsub(/\"/,""); gsub(/,/,""); print "export AWS_SECRET_ACCESS_KEY="$2";" } $1 == "\"SessionToken\":" { gsub(/\"/,""); gsub(/,/,""); print "export AWS_SESSION_TOKEN="$2";" } '`
-	if [[ $? -ne 0 || -z "$sts_json" ]]; then
+	if [[ $? -ne 0 || ${sts_json} == "" ]]; then
 		echo "Error: Fail getting session token."
 		return 1
 	fi
