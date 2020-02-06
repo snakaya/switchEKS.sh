@@ -5,7 +5,7 @@ Bash script for switching Profile of AWS EKS, Authenticating with MFA, Update ku
 ## Usage
 
 ```
-switchEKS.sh <MFA Device ARN(SerialNumber)> <EKS Cluster Name>
+source switchEKS.sh <MFA Device ARN(SerialNumber)> <EKS Cluster Name>
 ```
 
 ## Example
